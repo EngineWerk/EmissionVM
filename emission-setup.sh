@@ -13,20 +13,13 @@ apt-get update
 export DBPASSWORD=vagrant
 echo mysql-server mysql-server/root_password password vagrant | debconf-set-selections
 echo mysql-server mysql-server/root_password_again password vagrant | debconf-set-selections
-#echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-#echo oracle-java7-installer shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
 
-#apt-get install -y nginx php5 mysql-server php5-mysql php5-fpm php5-curl oracle-java7-installer \
 apt-get install -y nginx php5 mysql-server php5-mysql php5-fpm php5-curl \
    php5-dev build-essential memcached php5-memcache php5-memcached php5-xdebug php5-intl git php5-cli curl
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 composer selfupdate
-
-# Install Compass
-#gem update --system
-#gem install compass
 
 echo "xdebug.remote_host = 192.168.56.1" >> /etc/php5/conf.d/20-xdebug.ini
 echo "xdebug.remote_enable = 1" >> /etc/php5/conf.d/20-xdebug.ini
