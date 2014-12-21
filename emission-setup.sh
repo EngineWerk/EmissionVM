@@ -15,7 +15,8 @@ echo mysql-server mysql-server/root_password password vagrant | debconf-set-sele
 echo mysql-server mysql-server/root_password_again password vagrant | debconf-set-selections
 
 apt-get install -y nginx php5 mysql-server php5-mysql php5-fpm php5-curl \
-   php5-dev build-essential memcached php5-memcache php5-memcached php5-xdebug php5-intl git php5-cli curl
+   php5-dev build-essential memcached php5-memcache php5-memcached php5-xdebug php5-intl git php5-cli curl \
+   vim mc htop
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
