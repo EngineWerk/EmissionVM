@@ -22,9 +22,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             provisioner.autoconfigure = true
             provisioner.add_host '192.168.200.101', ['emission.local']
         end
-        emission.vm.provision "shell", path: "emission-setup.sh"
+        emission.vm.provision "shell", path: "provision.sh"
         emission.vm.synced_folder ".", "/vagrant", type: "nfs"
-        emission.vm.synced_folder "../Emission", "/emission", type: "nfs"
+        emission.vm.synced_folder "../../Emission", "/emission", type: "nfs"
     end
 
 end
