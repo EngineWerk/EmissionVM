@@ -3,7 +3,7 @@
 apt-get update
 apt-get install -y python-software-properties
 
-add-apt-repository -y ppa:ondrej/php5
+sudo add-apt-repository ppa:ondrej/php5-5.6
 
 apt-get update
 
@@ -79,10 +79,6 @@ sed -i "s/post_max_size =.*/post_max_size = 101M/g" /etc/php5/fpm/php.ini
 sed -i "s/file_uploads =.*/file_uploads = On/g" /etc/php5/fpm/php.ini
 
 /etc/init.d/php5-fpm restart
-
-#keeping a stable version of pear, need a 3.x (in this case is 3.7)
-cp /vagrant/config/emission/phpunit-lts.phar /usr/bin/phpunit
-chmod 755 /usr/bin/phpunit
 
 #autoconfigure to allow phpstorm to debug connections properly
 echo 'export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=192.168.200.1 remote_port=9000"' >> /home/vagrant/.profile
