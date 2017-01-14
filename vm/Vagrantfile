@@ -13,14 +13,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.define "emission" do |emission|
         emission.vm.box = "pawski/emission"
-        emission.vm.network :private_network, ip: "192.168.200.101"
+        emission.vm.network :private_network, ip: "192.168.199.100"
         emission.vm.hostname = "emission.local"
         emission.hostsupdater.aliases = [
             "emission.local"
         ]
         emission.vm.provision :hosts do |provisioner|
             provisioner.autoconfigure = true
-            provisioner.add_host '192.168.200.101', ['emission.local']
+            provisioner.add_host '192.168.199.100', ['emission.local']
         end
         emission.vm.provision "shell", path: "provision.sh"
         emission.vm.synced_folder ".", "/vagrant", type: "nfs"
